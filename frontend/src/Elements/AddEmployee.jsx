@@ -3,12 +3,14 @@ import { notify } from '../utils';
 import { CreateEmployee, UpdateEmployeeById } from '../api';
 
 function AddEmployee({ showModal, setShowModal, fetchEmployees, employeeObj }) {
+  const scaleOptions = ['liter', 'amount']; 
   const [employee, setEmployee] = useState({
     name: '',
-    email: '',
-    phone: '',
-    department: '',
-    salary: '',
+    Defect: '',
+    Weight: '',
+    Breed: '',
+    Age: '',
+    scale: 'liter',
     profileImage: null,
   });
   const [updateMode, setUpdateMode] = useState(false);
@@ -32,10 +34,11 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, employeeObj }) {
   const resetEmployeeStates = () => {
     setEmployee({
       name: '',
-      email: '',
-      phone: '',
-      department: '',
-      salary: '',
+      Defect: '',
+      Weight: '',
+      Breed: '',
+      Age: '',
+      scale: 'liter', 
       profileImage: null,
     });
   };
@@ -101,49 +104,66 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, employeeObj }) {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <label className="block text-sm font-medium text-gray-700">Defects</label>
               <input
-                type="email"
+                type="text"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                name="email"
-                value={employee.email}
+                name="Defect"
+                value={employee.Defect}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Phone</label>
+              <label className="block text-sm font-medium text-gray-700">Weight(kg)</label>
               <input
                 type="text"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                name="phone"
-                value={employee.phone}
+                name="Weight"
+                value={employee.Weight}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Department</label>
+              <label className="block text-sm font-medium text-gray-700">Breed</label>
               <input
                 type="text"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                name="department"
-                value={employee.department}
+                name="Breed"
+                value={employee.Breed}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Salary</label>
+              <label className="block text-sm font-medium text-gray-700">Age(Years)</label>
               <input
                 type="text"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                name="salary"
-                value={employee.salary}
+                name="Age"
+                value={employee.Age}
                 onChange={handleChange}
                 required
               />
             </div>
+             <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2">
+        Scale
+      </label>
+      <select
+        name="scale"
+        value={employee.scale}
+        onChange={handleChange}
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      >
+        {scaleOptions.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Profile Image</label>
               <input

@@ -6,25 +6,40 @@ const EmployeeSchema = new Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    phone: {
+    Defect: {
         type: String,
         required: true
     },
-    department: {
+    Weight: {
+        type: String,
+        required: true
+    },
+    Breed: {
         type: String,
         required: true
     },
     profileImage: {
         type: String
     },
-    salary: {
+    Age: {
         type: Number,
         required: true
+    },
+    production: [
+        {
+            date: {
+                type: Date,
+                required: true
+            },
+            amount: {
+                type: Number,
+                required: true
+            }
+        }
+    ],
+    scale: {
+        type: String,
+        default: "liter/amount"
     },
     createdAt: {
         type: Date,
@@ -38,5 +53,3 @@ const EmployeeSchema = new Schema({
 
 const EmployeeModel = mongoose.model('employees', EmployeeSchema);
 module.exports = EmployeeModel;
-
-

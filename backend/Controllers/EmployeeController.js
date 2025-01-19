@@ -123,9 +123,9 @@ const deleteEmployeeById = async (req, res) => {
 const updateEmployeeById = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, email, phone, department, salary } = req.body;
+        const { name, Defect, Weight, Breed, Age } = req.body;
         let updateData = {
-            name, email, phone, department, salary, updatedAt: new Date()
+            name, Defect, Weight, Breed, Age, updatedAt: new Date()
         };
         console.log('<-- update ---> ', req.file)
         if (req.file) {
@@ -151,10 +151,11 @@ const updateEmployeeById = async (req, res) => {
     }
 }
 
+
 module.exports = {
     createEmployee,
     getAllEmployees,
     getEmployeeById,
     deleteEmployeeById,
-    updateEmployeeById
+    updateEmployeeById,
 }
