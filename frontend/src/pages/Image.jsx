@@ -11,7 +11,7 @@ const CattleTracker = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const GEMINI_API_KEY = 'AIzaSyDdK7ukD2lO9kli33tX1v0wv1RBzbxhAgY';
+  const GEMINI_API_KEY = '';
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
