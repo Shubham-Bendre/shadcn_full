@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Employee = require('./Models/EmployeeModel'); // Adjust path as needed
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://shubhambendre04:tGeCJTpuCNIjJVq3@cluster0.mvsff.mongodb.net/emp_db?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('')
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
